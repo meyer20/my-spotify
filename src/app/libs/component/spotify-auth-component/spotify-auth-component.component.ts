@@ -12,6 +12,6 @@ export class SpotifyAuthComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('inits')
-    this.route.navigate(['/profile'], { relativeTo: this._activatedRoute });
+    this.route.navigate(['/me/profile'], { relativeTo: this._activatedRoute });
   }
 }
