@@ -17,9 +17,9 @@ export class AuthService {
     this.authToken = token;
     this.authToken$.next(this.authToken);
 
-    if (!this.tokenService.tokenExist()) {
+    // if (!this.tokenService.tokenExist()) {
       this.tokenService.setToken(this.token.access_token, this.token.expires_in);
-    }
+    // }
   }
 
   public get token(): AccessToken {

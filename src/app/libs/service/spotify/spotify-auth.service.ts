@@ -13,7 +13,11 @@ export class SpotifyAuthService {
     redirect_uri: 'http://localhost:4200/authorized',
     state: '',
     show_dialog: true,
-    scope: ['user-read-private']
+    scope: ['user-read-private',
+      'user-modify-playback-state',
+      'user-read-playback-state',
+      'user-read-currently-playing'
+    ]
   };
 
   constructor() { }
