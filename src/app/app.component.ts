@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {SpotifyAuthService} from './libs/service/spotify/spotify-auth.service';
+
+import { SpotifyAuthService } from './libs/service/spotify/spotify-auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'my-spotify';
