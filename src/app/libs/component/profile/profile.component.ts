@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.spotifyService.getUserInfo().subscribe((data: User) => {
       this.userData = data;
+      console.log(data);
     });
   }
 

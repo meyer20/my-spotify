@@ -1,6 +1,9 @@
-<p>profile works!</p>
-{{ userData | json }}
 <div *ngIf="userData">
-  <h1>{{ userData.display_name }}</h1>
+  <h1>{{ userData.display_name }}
+    <span class="badge bg-success">
+      Premium
+    </span>
+  </h1>
+<!--  <h1>{{ userData.display_name }}</h1>-->
   <img src="{{ userData.images[0].url }}">
 </div>

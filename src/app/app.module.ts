@@ -7,12 +7,14 @@ import { SpotifyAuthComponent } from './libs/component/spotify-auth-component/sp
 import { ServiceModule } from './libs/service/service.module';
 import { HomeComponent } from './libs/component/home/home.component';
 import { ProfileComponent } from './libs/component/profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceModule
+    ServiceModule,
+    FontAwesomeModule
   ],
   declarations: [
     AppComponent,
