@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SpotifyService } from '../../service/spotify/spotify.service';
 import { User, UserInterface } from '../../domain/user/user';
+import { SpotifyStore } from '../../service/spotify/spotify.store';
 
 @Component({
   selector: 'app-profile',
@@ -9,14 +9,20 @@ import { User, UserInterface } from '../../domain/user/user';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  userData: UserInterface = new User({} as UserInterface);
+  isLoading: boolean = true;
+  user: UserInterface = {} as User;
 
-  constructor(private spotifyService: SpotifyService) { }
+  constructor(private spotifyStore: SpotifyStore) {
+    this.spotifyStore.loadUserData().subscribe();
+  }
 
   ngOnInit(): void {
-    this.spotifyService.getUserInfo().subscribe((data: User) => {
-      this.userData = data;
-      console.log(data);
+    this.spotifyStore.user$.subscribe((user: User) => {
+      if (user?.id) {
+        this.user = user;
+        this.isLoading = false;
+      }
+      console.log(user);
     });
   }
 

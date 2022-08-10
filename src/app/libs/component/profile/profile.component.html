@@ -1,9 +1,18 @@
-<div *ngIf="userData">
-  <h1>{{ userData.display_name }}
+<div *ngIf="!isLoading && user.id" class="p-4 gap-4 d-flex">
+  <div class="profile-image">
+    <img class="rounded-circle" src="{{ user.images[0].url }}">
+  </div>
+  <div class="profile-data flex-grow-1">
+    <h2>
+      {{ user.display_name }}
+      <a href="{{ user.external_urls.spotify }}" target="_blank">
+        <img src="/assets/icons/spotify.ico" alt="Ver em spotify" width="32" height="32">
+      </a>
+    </h2>
+    <p>{{ user.id }} - {{ user.country }}</p>
     <span class="badge bg-success">
       Premium
     </span>
-  </h1>
-<!--  <h1>{{ userData.display_name }}</h1>-->
-  <img src="{{ userData.images[0].url }}">
+    <hr>
+  </div>
 </div>

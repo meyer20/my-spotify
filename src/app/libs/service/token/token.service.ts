@@ -20,6 +20,6 @@ export class TokenService {
   }
 
   public deleteToken(): void {
-    this.cookieService.delete(this.ACCESS_TOKEN_NAME);
+    this.cookieService.delete(this.ACCESS_TOKEN_NAME, '/');
   }
 }

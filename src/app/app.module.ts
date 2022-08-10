@@ -1,27 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpotifyAuthComponent } from './libs/component/spotify-auth-component/spotify-auth-component.component';
 import { ServiceModule } from './libs/service/service.module';
-import { HomeComponent } from './libs/component/home/home.component';
-import { ProfileComponent } from './libs/component/profile/profile.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ComponentsModule } from './libs/component/components.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ComponentsModule
   ],
-  declarations: [
-    AppComponent,
-    SpotifyAuthComponent,
-    HomeComponent,
-    ProfileComponent
-  ],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

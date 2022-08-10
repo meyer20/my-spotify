@@ -9,7 +9,7 @@ import { SpotifyAuthGuard } from './libs/service/guard/spotify-auth.guard';
 
 const routes: Routes = [{
   path: '',
-  component: HomeComponent,
+  component: HomeComponent
 }, {
   path: 'authorized',
   component: SpotifyAuthComponent,

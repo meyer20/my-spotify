@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanActivateChild
+} from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { TokenService } from '../token/token.service';
@@ -16,11 +21,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   public canActivateChild(): boolean {
-    // const tokenExist = this.tokenService.tokenExist();
-
-    // if (tokenExist && !this.authService.token) {
-    //   this.authService.token
-    // }
     return this.tokenService.tokenExist();
   }
 }
