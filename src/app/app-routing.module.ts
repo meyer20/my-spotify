@@ -6,10 +6,11 @@ import { SpotifyAuthComponent } from './libs/component/spotify-auth-component/sp
 import { HomeComponent } from './libs/component/home/home.component';
 import { ProfileComponent } from './libs/component/profile/profile.component';
 import { SpotifyAuthGuard } from './libs/service/guard/spotify-auth.guard';
+import { LoginComponent } from './libs/component/login/login.component';
 
 const routes: Routes = [{
   path: '',
-  component: HomeComponent
+  component: LoginComponent
 }, {
   path: 'authorized',
   component: SpotifyAuthComponent,

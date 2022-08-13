@@ -8,7 +8,7 @@ export class TokenService {
   constructor(private cookieService: CookieService) { }
 
   public setToken(value: string, expires: number): void {
-    this.cookieService.set(this.ACCESS_TOKEN_NAME, value, expires);
+    this.cookieService.set(this.ACCESS_TOKEN_NAME, value, expires, '/');
   }
 
   public getToken(): string {
@@ -20,6 +20,8 @@ export class TokenService {
   }
 
   public deleteToken(): void {
+    console.log('deleteToken');
     this.cookieService.delete(this.ACCESS_TOKEN_NAME, '/');
+    console.log('token', this.getToken());
   }
 }
