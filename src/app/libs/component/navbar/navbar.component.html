@@ -1,13 +1,13 @@
 <nav class="navbar bg-light">
   <div class="container d-flex flex-wrap">
-    <a class="navbar-brand text-color-primary">
+    <a href="/" class="navbar-brand text-color-primary">
       <img src="/assets/icons/spotify.ico" width="32" height="32" class="d-inline-block align-text-top">
       MySpotify
     </a>
-    <ul class="nav">
+    <ul *ngIf="user?.id" class="nav">
       <li class="nav-item">
         <a>
-          <img [src]="!isLoading && user.images[0].url" width="32" height="32" class="rounded-circle">
+          <img [src]="user.images[0].url" width="32" height="32" class="rounded-circle">
         </a>
       </li>
     </ul>
