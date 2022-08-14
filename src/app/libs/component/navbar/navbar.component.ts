@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { SpotifyStore } from '../../service/spotify/spotify.store';
 import { User } from '../../domain/user/user';
-import { TokenService } from '../../service/token/token.service';
-import { Router } from '@angular/router';
 import { SpotifyAuthService } from '../../service/spotify/spotify-auth.service';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private spotifyStore: SpotifyStore,
-    private tokenService: TokenService,
+    private authService: AuthService,
     private spotifyAuthService: SpotifyAuthService,
     private router: Router
   ) { }
@@ -35,12 +36,10 @@ export class NavbarComponent implements OnInit {
   }
 
   public logout(): void {
-    this.tokenService.deleteToken();
-    this.router.navigate([''])
+    this.authService.logout();
   }
 
   public get logged(): boolean {
-    return this.tokenService.tokenExist();
+    return this.authService.authenticated;
   }
-
 }

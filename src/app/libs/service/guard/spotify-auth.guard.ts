@@ -3,18 +3,19 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 
 import { AccessToken } from '../../domain/access-token/access-token';
 import { TokenService } from '../token/token.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyAuthGuard implements CanActivate {
 
-  constructor(private tokenService: TokenService) { }
+  constructor(private authService: AuthService) { }
 
   public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const token = this.extractApiResponse(next.fragment);
     if (token) {
-      this.tokenService.setToken(token.access_token, token.expires_in);
+      this.authService.token = token;
     }
 
     return !!token;
