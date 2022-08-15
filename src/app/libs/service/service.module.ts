@@ -10,6 +10,7 @@ import { SpotifyService } from './spotify/spotify.service';
 import { SpotifyStore } from './spotify/spotify.store';
 import { TokenService } from './token/token.service';
 import { AuthService } from './auth/auth.service';
+import { LocalStorageService } from './localstorage/localstorage.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -21,6 +22,7 @@ import { AuthService } from './auth/auth.service';
     TokenService,
     CookieService,
     AuthService,
+    LocalStorageService,
     // TODO Remover daqui
     AuthInterceptor,
     {

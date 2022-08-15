@@ -10,17 +10,18 @@ import { LoginComponent } from './libs/component/login/login.component';
 
 const routes: Routes = [{
   path: '',
-  component: LoginComponent
+  component: LoginComponent,
 }, {
   path: 'authorized',
   component: SpotifyAuthComponent,
   canActivate: [SpotifyAuthGuard],
 }, {
   path: 'me',
-  children: [{
-    path: 'profile',
-    component: ProfileComponent,
-  }],
+  component: ProfileComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'home',
+  component: HomeComponent,
   canActivate: [AuthGuard]
 }];
 

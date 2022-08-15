@@ -19,4 +19,10 @@ export class SpotifyService {
       return new User(data);
     }));
   }
+
+  public getUserTops(type: 'tracks' | 'artists'): Observable<any> {
+    return this.httpClient.get<User>(`${this.SPOTIFY_API_URL}/me/top/${type}`).pipe(map((data: any) => {
+      return data;
+    }));
+  }
 }

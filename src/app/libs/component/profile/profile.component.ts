@@ -12,9 +12,7 @@ export class ProfileComponent implements OnInit {
   isLoading: boolean = true;
   user: UserInterface = {} as User;
 
-  constructor(private spotifyStore: SpotifyStore) {
-    this.spotifyStore.loadUserData().subscribe();
-  }
+  constructor(private spotifyStore: SpotifyStore) {}
 
   ngOnInit(): void {
     this.spotifyStore.user$.subscribe((user: User) => {

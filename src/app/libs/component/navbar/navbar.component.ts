@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { SpotifyStore } from '../../service/spotify/spotify.store';
 import { User } from '../../domain/user/user';
@@ -19,16 +18,19 @@ export class NavbarComponent implements OnInit {
     private spotifyStore: SpotifyStore,
     private authService: AuthService,
     private spotifyAuthService: SpotifyAuthService,
-    private router: Router
-  ) { }
+  ) {
+    this.spotifyStore.loadUserData().subscribe();
+  }
 
   public ngOnInit(): void {
-    this.spotifyStore.user$.subscribe((user: User) => {
-      if (user?.id) {
-        this.user = user;
-        this.isLoading = false;
-      }
-    });
+    if (this.logged) {
+      this.spotifyStore.user$.subscribe((user: User) => {
+        if (user?.id) {
+          this.user = user;
+          this.isLoading = false;
+        }
+      });
+    }
   }
 
   public login(): void {

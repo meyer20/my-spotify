@@ -6,7 +6,6 @@ import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
 import { SpotifyAuthModule } from './spotify-auth-component/spotify-auth.module';
 import { LoginModule } from './login/login.module';
-
 @NgModule({
   imports: [
     CommonModule,
