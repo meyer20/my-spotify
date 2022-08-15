@@ -1,5 +1,7 @@
 # MySpotify
 
+[![Github Pages Deploy](https://github.com/meyer20/my-spotify/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/meyer20/my-spotify/actions/workflows/deploy.yml)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.4.
 
 ## Development server
