@@ -21,7 +21,7 @@ import { ComponentsModule } from './libs/component/components.module';
     NavbarModule
   ],
   declarations: [AppComponent],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [{provide: APP_BASE_HREF, useValue: '/my-spotify/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
