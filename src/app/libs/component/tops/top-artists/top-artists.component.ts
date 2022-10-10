@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../service/spotify/spotify.service';
+import { ResponseInterface } from '../../../domain/common/response';
+import { Artist } from '../../../domain/artists/artist';
 
 @Component({
   selector: 'app-top-artists',
@@ -8,16 +10,15 @@ import { SpotifyService } from '../../../service/spotify/spotify.service';
 })
 export class TopArtistsComponent implements OnInit {
   public isLoading = true;
-  public artists: any = [];
+  public artists: Artist[] = [];
 
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
-    this.spotifyService.getUserTops('artists').subscribe((artists: any) => {
-      console.log('artists', artists);
-      this.isLoading = false;
-      this.artists = artists.items;
-    });
+    this.spotifyService.getUserTops('artists')
+      .subscribe((artists: ResponseInterface<Artist[]>) => {
+        this.isLoading = false;
+        this.artists = artists.items;
+      });
   }
-
 }

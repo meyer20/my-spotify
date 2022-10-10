@@ -1,16 +1,12 @@
 <div class="p-4" *ngIf="!isLoading">
-
-  <div *ngFor="let artist of artists" class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img [src]="artist.images[0].url" class="img-fluid rounded-start" width="160" height="160">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{ artist.name }}</h5>
-        </div>
+  <h1>Top artistas</h1>
+  <div class="artists-carousel pb-2 d-flex flex-row">
+    <div *ngFor="let artist of artists" class="card artists-carousel-item">
+      <img [src]="artist.images[0].url" class="card-img-top" [alt]="artist.name">
+      <div class="card-body">
+        <h4>{{ artist.name }}</h4>
+        <p class="card-text">{{ artist.name }}</p>
       </div>
     </div>
   </div>
-
 </div>

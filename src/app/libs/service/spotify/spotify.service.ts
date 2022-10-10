@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User, UserInterface } from '../../domain/user/user';
+import { Artist, ArtistInterface } from '../../domain/artists/artist';
+import { ResponseInterface } from '../../domain/common/response';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +22,11 @@ export class SpotifyService {
     }));
   }
 
-  public getUserTops(type: 'tracks' | 'artists'): Observable<any> {
-    return this.httpClient.get<User>(`${this.SPOTIFY_API_URL}/me/top/${type}`).pipe(map((data: any) => {
-      return data;
-    }));
+  public getUserTops(type: 'tracks' | 'artists'): Observable<ResponseInterface<Artist[]>> {
+    return this.httpClient.get<ResponseInterface<Artist[]>>(`${this.SPOTIFY_API_URL}/me/top/${type}`)
+      .pipe(map((data: ResponseInterface<ArtistInterface[]>) => {
+        data.items = data.items.map((item: ArtistInterface) => new Artist(item));
+        return data;
+      }));
   }
 }
