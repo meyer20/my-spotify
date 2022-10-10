@@ -10,7 +10,7 @@ export class SpotifyAuthService {
   private authConfig = {
     client_id: '335acf2f77f94d3f978c65999c842285',
     response_type: 'token',
-    redirect_uri: 'http://localhost:4200/authorized',
+    redirect_uri: window.location.origin + '/authorized',
     state: '',
     show_dialog: true,
     scope: [
