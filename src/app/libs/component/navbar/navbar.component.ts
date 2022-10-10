@@ -19,7 +19,9 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private spotifyAuthService: SpotifyAuthService,
   ) {
-    this.spotifyStore.loadUserData().subscribe();
+    if (this.logged) {
+      this.spotifyStore.loadUserData().subscribe();
+    }
   }
 
   public ngOnInit(): void {
