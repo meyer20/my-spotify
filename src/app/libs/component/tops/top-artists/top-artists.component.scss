@@ -11,6 +11,18 @@
   }
 }
 
+.artists-carousel-navigator {
+  gap: 4px;
+
+  & .artists-carousel-navigator-item {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-size: cover;
+    cursor: pointer;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .artists-carousel-item {
     width: 100% !important;

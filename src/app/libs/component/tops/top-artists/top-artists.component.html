@@ -1,12 +1,20 @@
 <div class="p-4" *ngIf="!isLoading">
   <h1>Top artistas</h1>
   <div class="artists-carousel pb-2 d-flex flex-row">
-    <div *ngFor="let artist of artists" class="card artists-carousel-item">
+    <div #carouselItem *ngFor="let artist of artists" class="card artists-carousel-item">
       <img [src]="artist.images[0].url" class="card-img-top" [alt]="artist.name">
       <div class="card-body">
         <h4>{{ artist.name }}</h4>
-        <p class="card-text">{{ artist.name }}</p>
+        <p class="card-text">{{ artist.followers.total }} seguidores</p>
       </div>
+    </div>
+  </div>
+  <div class="artists-carousel-navigator d-flex justify-content-center">
+      <div *ngFor="let artist of artists; let i = index"
+           class="artists-carousel-navigator-item"
+           [ngStyle]="{ 'background-image': 'url(' + artist.images[0].url + ')' }"
+           [title]="artist.name"
+           (click)="gotoArtist(i)">
     </div>
   </div>
 </div>

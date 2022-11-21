@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { SpotifyService } from '../../../service/spotify/spotify.service';
 import { ResponseInterface } from '../../../domain/common/response';
 import { Artist } from '../../../domain/artists/artist';
@@ -11,6 +11,8 @@ import { Artist } from '../../../domain/artists/artist';
 export class TopArtistsComponent implements OnInit {
   public isLoading = true;
   public artists: Artist[] = [];
+  @ViewChildren("carouselItem") carouselItems!: QueryList<ElementRef>;
+  currentIndex = 0;
 
   constructor(private spotifyService: SpotifyService) { }
 
@@ -20,5 +22,10 @@ export class TopArtistsComponent implements OnInit {
         this.isLoading = false;
         this.artists = artists.items;
       });
+  }
+
+  gotoArtist(i: number) {
+    this.currentIndex = i;
+    this.carouselItems.toArray()[i].nativeElement.scrollIntoView({ behavior: 'smooth'})
   }
 }
