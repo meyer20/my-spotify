@@ -19,8 +19,11 @@ export class TopArtistsComponent implements OnInit {
   ngOnInit(): void {
     this.spotifyService.getUserTops('artists')
       .subscribe((artists: ResponseInterface<Artist[]>) => {
-        this.isLoading = false;
         this.artists = artists.items;
+      }, (error) => {
+        console.error(error);
+      }, () => {
+        this.isLoading = false;
       });
   }
 

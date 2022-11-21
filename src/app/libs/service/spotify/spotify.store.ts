@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { User, UserInterface } from '../../domain/user/user';
 import { SpotifyService } from './spotify.service';
 import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class SpotifyStore {
-  private user = new BehaviorSubject<User>({} as User);
+  private user = new ReplaySubject<User>();
   readonly user$ = this.user.asObservable();
 
   constructor(private spotifyService: SpotifyService) {}

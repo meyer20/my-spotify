@@ -14,5 +14,4 @@ export class LoginComponent {
   public spotifyLogin(): void {
     this.spotifyAuthService.authorizeSpotify();
   }
-
 }

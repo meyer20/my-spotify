@@ -12,20 +12,18 @@ import { AuthService } from '../../service/auth/auth.service';
 })
 export class NavbarComponent implements OnInit {
   isLoading: boolean = true;
-  user: User = {} as User;
+  user!: User;
 
   constructor(
     private spotifyStore: SpotifyStore,
     private authService: AuthService,
     private spotifyAuthService: SpotifyAuthService,
-  ) {
-    if (this.logged) {
-      this.spotifyStore.loadUserData().subscribe();
-    }
-  }
+  ) {}
 
   public ngOnInit(): void {
     if (this.logged) {
+      this.spotifyStore.loadUserData().subscribe();
+
       this.spotifyStore.user$.subscribe((user: User) => {
         if (user?.id) {
           this.user = user;
