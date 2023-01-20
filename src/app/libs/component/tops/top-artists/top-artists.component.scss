@@ -20,6 +20,12 @@
     border-radius: 50%;
     background-size: cover;
     cursor: pointer;
+    transition: transform .3s;
+
+  }
+
+  & .artists-carousel-navigator-item:hover {
+    transform: scale(2.5);
   }
 }
 

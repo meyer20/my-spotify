@@ -5,11 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href https://meyer20.github.io/my-spotify/",
+    "build:prod": "ng build --configuration production --output-hashing none --base-href https://meyer20.github.io/my-spotify/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --fix",
-    "prettier:check": "prettier --config .prettierrc --check src/**/*.{ts,css,html}"
+    "prettier:check": "prettier --config .prettierrc --check src/**/*.{ts,css,html}",
+    "commit": "git-cz"
   },
   "private": true,
   "dependencies": {
@@ -43,10 +44,13 @@
     "@angular-eslint/template-parser": "14.0.2",
     "@angular/cli": "^14.0.5",
     "@angular/compiler-cli": "^14.0.5",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/prompt": "^17.4.2",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.29.0",
     "@typescript-eslint/parser": "5.29.0",
+    "commitizen": "^4.3.0",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -72,5 +76,10 @@
     "*.css": "stylelint --fix",
     "*.scss": "stylelint --syntax=scss --fix",
     "*.ts": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   }
 }
